@@ -164,7 +164,6 @@ class BSTTree{
                 return nodeToCompare.left;
             }
             else{
-                console.log("deleting 2 children node :(")
                 var tempNode = nodeToCompare.right;
                 while(tempNode.left != null) {
                     tempNode = tempNode.left;
