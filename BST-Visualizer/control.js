@@ -23,6 +23,10 @@ function toAdd(){
     }
     else{
         tree.addNode(text, tree.head, tree.curLv)
+        tree.sleep(2000).then(() => { 
+            ctx.clearRect(0, window.innerHeight/7 - 60, window.innerWidth, window.innerHeight);
+            tree.drawTree(tree.head, 1)
+         });
     }
 }
 

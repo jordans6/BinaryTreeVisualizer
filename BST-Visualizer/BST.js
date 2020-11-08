@@ -75,16 +75,35 @@ class BSTTree{
         if(val < nodeToCompare.data){
             console.log(nodeToCompare.data);
             if(nodeToCompare.left == null){
-                console.log("adding left");
-                console.log(val);
+                //console.log("adding left");
+                //console.log(val);
                 nodeToCompare.left = new BSTNode(val, lv, nodeToCompare.xPos - 300/this.curLv, nodeToCompare.yPos + 100);
                 this.drawLineLeft(nodeToCompare, nodeToCompare.left, this.curLv);
+                ctx.beginPath();
+                ctx.strokeStyle = "blue";
+                ctx.lineWidth = 6;
+                ctx.arc(nodeToCompare.xPos, nodeToCompare.yPos, 40, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.strokeStyle = "black";
                 this.curLv = 1;
                 nodeToCompare.left.drawNode();
+                ctx.beginPath();
+                ctx.strokeStyle = "green";
+                ctx.lineWidth = 6;
+                console.log("painting")
+                ctx.arc(nodeToCompare.left.xPos, nodeToCompare.left.yPos, 40, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.strokeStyle = "black";
             }
             else{
-                console.log("going left");
-                console.log(val);
+                //console.log("going left");
+                //console.log(val);
+                ctx.beginPath();
+                ctx.strokeStyle = "blue";
+                ctx.lineWidth = 6;
+                ctx.arc(nodeToCompare.xPos, nodeToCompare.yPos, 40, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.strokeStyle = "black";
                 this.curLv += 1;
                 this.addNode(val, nodeToCompare.left, this.curLv);
             }  
@@ -93,16 +112,35 @@ class BSTTree{
         if(val >= nodeToCompare.data){
             console.log(nodeToCompare.data);
             if(nodeToCompare.right == null){
-                console.log("adding right");
-                console.log(val);
+                //console.log("adding right");
+                //console.log(val);
                 nodeToCompare.right = new BSTNode(val, lv, nodeToCompare.xPos + 300/this.curLv, nodeToCompare.yPos + 100);
                 this.drawLineRight(nodeToCompare, nodeToCompare.right, this.curLv);
+                ctx.beginPath();
+                ctx.strokeStyle = "blue";
+                ctx.lineWidth = 6;
+                ctx.arc(nodeToCompare.xPos, nodeToCompare.yPos, 40, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.strokeStyle = "black";
                 this.curLv = 1;
                 nodeToCompare.right.drawNode();
+                ctx.beginPath();
+                ctx.strokeStyle = "green";
+                ctx.lineWidth = 6;
+                console.log("painting")
+                ctx.arc(nodeToCompare.right.xPos, nodeToCompare.right.yPos, 40, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.strokeStyle = "black";
             }
             else{
-                console.log("going right");
-                console.log(val);
+                //console.log("going right");
+                //console.log(val);
+                ctx.beginPath();
+                ctx.strokeStyle = "blue";
+                ctx.lineWidth = 6;
+                ctx.arc(nodeToCompare.xPos, nodeToCompare.yPos, 40, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.strokeStyle = "black";
                 this.curLv += 1;
                 this.addNode(val, nodeToCompare.right, this.curLv);
             } 
@@ -177,7 +215,7 @@ class BSTTree{
             nodeToCompare.left = this.delete(val, nodeToCompare.left);
             return nodeToCompare;
         }
-        else{
+        else{ 
             nodeToCompare.right = this.delete(val, nodeToCompare.right);
             return nodeToCompare;
         }
